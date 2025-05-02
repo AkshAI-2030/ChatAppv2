@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
+const ENDPOINT = import.meta.env.VITE_API_BASE_URL;
 const Login = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
@@ -25,7 +26,7 @@ const Login = () => {
     setMessage(null);
 
     try {
-      const res = await fetch(`http://localhost:3000/auth/login`, {
+      const res = await fetch(`${ENDPOINT}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),

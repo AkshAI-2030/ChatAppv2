@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 import MessageList from "./MessageList";
 import LogoutButton from "./LogoutButton";
 
-const ENDPOINT = "http://localhost:3000";
+const ENDPOINT = import.meta.env.VITE_API_BASE_URL;
 const socket = io(ENDPOINT, {
   withCredentials: true,
 });

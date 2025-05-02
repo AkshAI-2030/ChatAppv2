@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+const ENDPOINT = import.meta.env.VITE_API_BASE_URL;
 const Register = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
@@ -24,7 +25,7 @@ const Register = () => {
     setMessage(null);
 
     try {
-      const res = await fetch(`http://localhost:3000/auth/register`, {
+      const res = await fetch(`${ENDPOINT}/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
